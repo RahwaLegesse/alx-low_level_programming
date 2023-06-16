@@ -13,7 +13,9 @@ int main(void)
 	char lowA;
 
 	for (lowA = 'z'; lowA >= 'a'; lowA--)
+	{
 		putchar(lowA);
+	}
 		putchar('\n');
 
 	return (0);
