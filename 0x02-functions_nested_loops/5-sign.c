@@ -6,6 +6,7 @@
  * Return:1 for positive num ,-1 for negative num 0 for anythingelse
  */
 int print_sign(int n)
+{
 if (n > 0)
 {
 _putchar(43);
@@ -20,4 +21,5 @@ else
 {
 _putchar(48)
 return (0)
+}
 }
