@@ -2,16 +2,16 @@
 
 /**
  * _puts - followed by a new line, to stdout
- * @s:to dispaly string
+ * @str:to dispaly string
  * Return: str
  */
 void _puts(char *str)
 {
 	int i = 0;
 
-	while (s[i] != '\0')
+	while (str[i] != '\0')
 	{
-		_putchar(s[i]);
+		_putchar(str[i]);
 		i++;
 	}
 }
