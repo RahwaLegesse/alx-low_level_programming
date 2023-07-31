@@ -2,10 +2,10 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
-
 /**
- * free_listint2 -  uses to free
- * @head: pointer to the listint_t 
+ * free_listint2 - uses to free
+ * @head:pointer to the listint_t
+ * Return: nothing
  */
 void free_listint2(listint_t **head)
 {
