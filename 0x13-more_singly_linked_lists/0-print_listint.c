@@ -2,7 +2,6 @@
 #include <string.h>
 #include <stdio.h>
 #include "lists.h"
-
 /**
  * print_listint - prints the elements
  * @h:the head link
