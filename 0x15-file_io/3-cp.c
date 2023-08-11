@@ -24,7 +24,7 @@ char *create_buffer(char *file)
 }
 /**
  * close_file - it closes the file
- * @fd:says close the file
+ * @p:says close the file
  */
 void close_file(int p)
 {
