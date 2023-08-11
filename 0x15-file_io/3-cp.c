@@ -2,15 +2,15 @@
 #include <stdlib.h>
 #include "main.h"
 
-char *create_buffer(char *file);
-void close_file(int p);
+char *create(char *file);
+void close_f(int p);
 
 /**
- * create_buffer - holds 1024 bytes
+ * create_temp - holds 1024 bytes
  * @file:file in the buffer
  * Return:pointor to the file
  */
-char *create_buffer(char *file)
+char *create_temp(char *file)
 {
 	char *temp;
 
@@ -24,10 +24,10 @@ char *create_buffer(char *file)
 	return (temp);
 }
 /**
- * close_file - it closes the file
+ * close_f - it closes the file
  * @p:says close the file
  */
-void close_file(int p)
+void close_f(int p)
 {
 	int cg;
 
@@ -43,10 +43,6 @@ void close_file(int p)
  * @argc:number of argument
  * @argv:the array of string
  * Return:zero
- * Description - if the argument no incorrect-exit(97)
- * If file_from not exist or not be read - exit(98)
- * If file_to not created or written to - exit(99)
- * If file_to or file_from not be closed - exit(100)
  */
 int main(int argc, char *argv[])
 {
@@ -58,7 +54,7 @@ int main(int argc, char *argv[])
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
-	temp = create_buffer(argv[2]);
+	temp = create_temp(argv[2]);
 	from = open(argv[1], O_RDONLY);
 	rt = read(from, temp, 1024);
 	to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
@@ -82,8 +78,8 @@ int main(int argc, char *argv[])
 		to = open(argv[2], O_WRONLY | O_APPEND);
 	} while (rt > 0);
 	free(temp);
-	close_file(from);
-	close_file(to);
+	close_f(from);
+	close_f(to);
 	return (0);
 }
 
