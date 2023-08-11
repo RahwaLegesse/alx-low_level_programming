@@ -26,14 +26,14 @@ char *create_buffer(char *file)
  * close_file - it closes the file
  * @fd:says close the file
  */
-void close_file(int fd)
+void close_file(int p)
 {
 	int cg;
 
-	cg = close(fd);
+	cg = close(p);
 	if (cg == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd fd_VALUE %d\n", fd);
+		dprintf(STDERR_FILENO, "Error: Can't close p p_VALUE %d\n", p);
 		exit(100);
 	}
 }
@@ -75,8 +75,8 @@ int main(int argc, char *argv[])
 		to = open(argv[2], O_WRONLY | O_APPEND);
 	} while (rt > 0);
 	free(temp);
-	close(from);
-	close(to);
+	close_file(from);
+	close_file(to);
 	return (0);
 }
 
