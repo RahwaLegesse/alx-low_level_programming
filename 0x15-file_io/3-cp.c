@@ -3,7 +3,7 @@
 #include "main.h"
 
 char *create_buffer(char *file);
-void close_file(int fd);
+void close_file(int p);
 
 /**
  * create_buffer - holds 1024 bytes
@@ -65,7 +65,7 @@ int main(int argc, char *argv[])
 			exit(98);
 		}
 		wt = write(to, temp, rt);
-		if (wt == -1 || to == -1)
+		if (to == -1 || wt == -1)
 		{
 			dprintf(STDERR_FILENO, "ERROR: can't write to %s\n", argv[2]);
 			free(temp);
