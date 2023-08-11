@@ -42,6 +42,10 @@ void close_file(int p)
  * @argc:number of argument
  * @argv:the array of string
  * Return:zero
+ * Description - if the argument no incorrect-exit(97)
+ * If file_from not exist or not be read - exit(98)
+ * If file_to not created or written to - exit(99)
+ * If file_to or file_from not be closed - exit(100)
  */
 int main(int argc, char *argv[])
 {
