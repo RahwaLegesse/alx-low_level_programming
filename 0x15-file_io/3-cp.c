@@ -3,7 +3,7 @@
 #include "main.h"
 
 char *create_buffer(char *file);
-void close_file(int fd);
+void close_file(int p);
 
 /**
  * create_buffer - holds 1024 bytes
@@ -17,23 +17,24 @@ char *create_buffer(char *file)
 	temp = malloc(sizeof(char) * 1024);
 	if (temp == NULL)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file);
+		dprintf(STDERR_FILENO,
+			"Error: Can't write to %s\n", file);
 		exit(99);
 	}
 	return (temp);
 }
 /**
  * close_file - it closes the file
- * @fd:says close the file
+ * @p:says close the file
  */
-void close_file(int fd)
+void close_file(int p)
 {
 	int cg;
 
-	cg = close(fd);
+	cg = close(p);
 	if (cg == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd fd_VALUE %d\n", fd);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
 		exit(100);
 	}
 }
@@ -54,8 +55,8 @@ int main(int argc, char *argv[])
 
 	if (argc != 3)
 	{
-		dprintf(STDERR_FILENO, "Usage: cp file_from file_to \n");
-			exit(97);
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
+		exit(97);
 	}
 	temp = create_buffer(argv[2]);
 	from = open(argv[1], O_RDONLY);
@@ -64,15 +65,17 @@ int main(int argc, char *argv[])
 	do {
 		if (from == -1 || rt == -1)
 		{
-			dprintf(STDERR_FILENO, "Error: Can't read %s\n", argv[1]);
-			free(temp);
+			dprintf(STDERR_FILENO,
+				"Error: Can't read from file %s\n", argv[1]);
+			free(buffer);
 			exit(98);
 		}
 		wt = write(to, temp, rt);
 		if (to == -1 || wt == -1)
 		{
-			dprintf(STDERR_FILENO, "ERROR: can't write to %s\n", argv[2]);
-			free(temp);
+			dprintf(STDERR_FILENO,
+				"Error: Can't write to %s\n", argv[2]);
+			free(buffer);
 			exit(99);
 		}
 		rt = read(from, temp, 1024);
