@@ -3,7 +3,7 @@
 #include "main.h"
 
 char *create_buffer(char *file);
-void close_file(int p);
+void close_file(int fd);
 
 /**
  * create_buffer - holds 1024 bytes
@@ -24,16 +24,16 @@ char *create_buffer(char *file)
 }
 /**
  * close_file - it closes the file
- * @p:says close the file
+ * @fd:says close the file
  */
-void close_file(int p)
+void close_file(int fd)
 {
 	int cg;
 
-	cg = close(p);
+	cg = close(fd);
 	if (cg == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close p p_VALUE %d\n", p);
+		dprintf(STDERR_FILENO, "Error: Can't close fd fd_VALUE %d\n", fd);
 		exit(100);
 	}
 }
