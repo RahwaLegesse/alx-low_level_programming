@@ -6,7 +6,7 @@
   * @s: size of the array.
   * @value:  value to search.
   *
-  * Return: -1 if the array not found 
+  * Return: -1 if the array not found
   *         Otherwise,index  value is located.
   *
   * Description: Prints the [sub]array.
